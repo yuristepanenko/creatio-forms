@@ -6,7 +6,7 @@
     <title>Форма реєстрації</title>
     
     <link rel="stylesheet" href="forms.css"> 
-    <script src="form-processing.js"></script>
+    
 
 </head>
 <body>
@@ -14,12 +14,11 @@
         <div class="form-header">
             <h1 class="form-title">Реєстрація ліда</h1>
             <p class="form-subtitle">Реєстрація нового ліда в Creatio</p>
-            <p class="form-subtitle">
-                <a href="event-reg.html">Реєстрація на подію</a>
-            </p>
-            <p class="form-subtitle">
-                <a href="form-reg.html">Форма звернення</a>
-            </p>
+            <div class="navigation-links">
+                <a href="event-reg.html" class="nav-link">Реєстрація на подію</a>
+                <a href="form-reg.html" class="nav-link">Форма звернення</a>
+            </div>
+
         </div>
 
         <form id="registrationForm" novalidate>
@@ -75,6 +74,7 @@
         </form>
     </div>
 
-
+    <script src="form-processing.js"></script>
+    
 </body>
 </html>

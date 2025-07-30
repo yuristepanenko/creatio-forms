@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Форма реєстрації</title>
     
-    <link rel="stylesheet" href="forms.css"> 
-    <script src="form-processing.js"></script>
+    <link rel="stylesheet" href="forms.css"/> 
+    
     <style>
         body{
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important; 
@@ -19,12 +19,10 @@
         <div class="form-header">
             <h1 class="form-title">Форма звернення</h1>
             <p class="form-subtitle"> заповніть чим зв'язатися з нами</p>
-            <p class="form-subtitle">
-                <a href="index.html">Реєстрація ліда</a>
-            </p>
-            <p class="form-subtitle">
-                <a href="event-reg.html">Реєстрація на подію</a>
-            </p>
+            <div class="navigation-links">
+                <a href="index.html" class="nav-link">Реєстрація ліда</a>
+                <a href="event-reg.html" class="nav-link">Реєстрація на подію</a>
+            </div>
         </div>
 
         <form id="registrationForm" novalidate>
@@ -80,6 +78,7 @@
         </form>
     </div>
 
-
+    <script src="form-processing.js"></script>
+    
 </body>
 </html>

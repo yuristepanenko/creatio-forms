@@ -19,11 +19,19 @@ function setHiddenFields() {
         inputs.utm_source.value = utmSource;
     }
 
+    console.log("utm_source = "+utmSource);
+    console.log(inputs.utm_source.value);
+
+
     const contactParam = urlParams.get('contact');
+
     
     if (contactParam) {
         inputs.contact.value = contactParam;
     }
+
+    console.log("contact = "+contactParam);
+    console.log(inputs.contact.value);
     
     // Можна додати логіку для поля contact (наприклад, з localStorage або cookies)
     // inputs.contact.value = localStorage.getItem('contact') || '';

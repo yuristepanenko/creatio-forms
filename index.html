@@ -20,9 +20,9 @@
         * Если Ваша лендинговая страница не содержит одного или нескольких полей из приведенных ниже – оставьте строку без изменений или удалите полностью.
         */
 
-        var countryName = $("#name_of_dropdown option:selected").text();
+        var countryName = $("#country option:selected").text();
 
-        $("#countryValue").val(countryName); 
+        
 
         var config = {
             fields: {
@@ -53,6 +53,9 @@
         * Пример: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
         */
         function createObject() {
+            
+            $("#countryValue").val(countryName); 
+
             landing.createObjectFromLanding(config);
             alert("createObject");
             console.log("createObject");
@@ -133,7 +136,7 @@
                     <option value="Uzbekistan">Узбекистан</option>
                 </select>
                 <!-- Приховане поле Creatio -->
-                <input type="hidden" id="countryVal" />
+                <input type="hidden" id="countryValue" />
                 <div class="error-message" id="countryError">Будь ласка, оберіть країну</div>
             </div>
 

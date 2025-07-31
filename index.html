@@ -13,55 +13,62 @@
     <script>
         
 
-/**
-* Замените выражение в кавычках "css-selector" в коде ниже значением селектора элемента на Вашей лендинговой странице.
-* Вы можете использовать #id или любой другой CSS селектор, который будет точно определять поле ввода на Вашей лендинговой странице.
-* Пример: "Email": "#MyEmailField".
-* Если Ваша лендинговая страница не содержит одного или нескольких полей из приведенных ниже – оставьте строку без изменений или удалите полностью.
-*/
+        /**
+        * Замените выражение в кавычках "css-selector" в коде ниже значением селектора элемента на Вашей лендинговой странице.
+        * Вы можете использовать #id или любой другой CSS селектор, который будет точно определять поле ввода на Вашей лендинговой странице.
+        * Пример: "Email": "#MyEmailField".
+        * Если Ваша лендинговая страница не содержит одного или нескольких полей из приведенных ниже – оставьте строку без изменений или удалите полностью.
+        */
 
-var countryName = $("#name_of_dropdown option:selected").text();
+        var countryName = $("#name_of_dropdown option:selected").text();
 
-$("#countryValue").val(countryName); 
+        $("#countryValue").val(countryName); 
 
-var config = {
-    fields: {
-        "Name": "#name", // Имя посетителя, заполнившего форму
-        "Email": "#email", // Email посетителя
-        "MobilePhone": "#mobile", // Телефон посетителя
-        "Company": "#company", // Название компании
-        "Industry": "Banks", // Отрасль компании
-        //"FullJobTitle": "css-selector", // Должность посетителя
-        //"UseEmail": "css-selector", // Логическое значение «да» - согласие посетителя получать email рассылки
-        //"City": "css-selector", // Город
-        "Country": "#countryValue", // Страна
-        "Commentary": "some text" // Примечание
-    },
-    contactFields: {
-        "FullName": "#name", // Name of a contact
-        "Phone": "#mobile", // Contact's mobile phone
-        "Email": "#email" // Contact's email
-    },
-    customFields: {},
-    landingId: "c9552a68-143e-424c-8038-1eb8e3abb810",
-    serviceUrl: "https://stage-xpartners.creatio.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
-    redirectUrl: ""
-};
-/**
-* Функция ниже создает объект из введенных данных.
-* Привяжите вызов этой функции к событию "onSubmit" формы или любому другому элементу события.
-* Пример: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
-*/
-function createObject() {
-    landing.createObjectFromLanding(config);
-}
-/**
-* Функция ниже инициализирует лендинг из параметров URL.
-*/
-function initLanding() {
-    landing.initLanding(config);
-}
-jQuery(document).ready(initLanding);
+        var config = {
+            fields: {
+                "Name": "#name", // Имя посетителя, заполнившего форму
+                "Email": "#email", // Email посетителя
+                "MobilePhone": "#mobile", // Телефон посетителя
+                "Company": "#company", // Название компании
+                "Industry": "Banks", // Отрасль компании
+                //"FullJobTitle": "css-selector", // Должность посетителя
+                //"UseEmail": "css-selector", // Логическое значение «да» - согласие посетителя получать email рассылки
+                //"City": "css-selector", // Город
+                "Country": "#countryValue", // Страна
+                "Commentary": "some text" // Примечание
+            },
+            contactFields: {
+                "FullName": "#name", // Name of a contact
+                "Phone": "#mobile", // Contact's mobile phone
+                "Email": "#email" // Contact's email
+            },
+            customFields: {},
+            landingId: "c9552a68-143e-424c-8038-1eb8e3abb810",
+            serviceUrl: "https://stage-xpartners.creatio.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
+            redirectUrl: ""
+        };
+        /**
+        * Функция ниже создает объект из введенных данных.
+        * Привяжите вызов этой функции к событию "onSubmit" формы или любому другому элементу события.
+        * Пример: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
+        */
+        function createObject() {
+            landing.createObjectFromLanding(config);
+            alert("createObject");
+            console.log("createObject");
+            console.log(config);
+        }
+        /**
+        * Функция ниже инициализирует лендинг из параметров URL.
+        */
+        function initLanding() {
+            landing.initLanding(config);
+            alert("initLanding");
+            console.log("initLanding");
+            console.log(config);
+
+        }
+        jQuery(document).ready(initLanding);
 
 
 

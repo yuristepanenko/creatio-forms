@@ -18,6 +18,12 @@ function setHiddenFields() {
     if (utmSource) {
         inputs.utm_source.value = utmSource;
     }
+
+    const contactParam = urlParams.get('contact');
+    
+    if (contactParam) {
+        inputs.contact.value = contactParam;
+    }
     
     // Можна додати логіку для поля contact (наприклад, з localStorage або cookies)
     // inputs.contact.value = localStorage.getItem('contact') || '';
@@ -190,10 +196,10 @@ form.addEventListener('submit', function(e) {
               `Contact: ${inputs.contact.value || 'не заповнено'}\n` +
               `UTM Source: ${inputs.utm_source.value || 'не заповнено'}`);
         
-        // Очистити форму
+        Очистити форму
         form.reset();
         Object.keys(inputs).forEach(key => {
-            if (key !== 'contact' && key !== 'utm_source') {
+            if (key !== 'contact' && key !== 'utm_source' && key !== 'countryValue') {
                 clearValidation(key);
             }
         });

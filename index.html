@@ -6,7 +6,69 @@
     <title>Форма реєстрації</title>
     
     <link rel="stylesheet" href="forms.css"> 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://webtracking-v01.creatio.com/JS/track-cookies.js"></script>
+    <script src="https://webtracking-v01.bpmonline.com/JS/create-object.js"></script>
+    <script>
+        
+
+/**
+* Замените выражение в кавычках "css-selector" в коде ниже значением селектора элемента на Вашей лендинговой странице.
+* Вы можете использовать #id или любой другой CSS селектор, который будет точно определять поле ввода на Вашей лендинговой странице.
+* Пример: "Email": "#MyEmailField".
+* Если Ваша лендинговая страница не содержит одного или нескольких полей из приведенных ниже – оставьте строку без изменений или удалите полностью.
+*/
+
+var countryName = $("#name_of_dropdown option:selected").text();
+
+$("#countryValue").val(countryName); 
+
+var config = {
+    fields: {
+        "Name": "#name", // Имя посетителя, заполнившего форму
+        "Email": "#email", // Email посетителя
+        "MobilePhone": "#mobile", // Телефон посетителя
+        "Company": "#company", // Название компании
+        "Industry": "Banks", // Отрасль компании
+        //"FullJobTitle": "css-selector", // Должность посетителя
+        //"UseEmail": "css-selector", // Логическое значение «да» - согласие посетителя получать email рассылки
+        //"City": "css-selector", // Город
+        "Country": "#countryValue", // Страна
+        "Commentary": "some text" // Примечание
+    },
+    contactFields: {
+        "FullName": "#name", // Name of a contact
+        "Phone": "#mobile", // Contact's mobile phone
+        "Email": "#email" // Contact's email
+    },
+    customFields: {},
+    landingId: "c9552a68-143e-424c-8038-1eb8e3abb810",
+    serviceUrl: "https://stage-xpartners.creatio.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
+    redirectUrl: ""
+};
+/**
+* Функция ниже создает объект из введенных данных.
+* Привяжите вызов этой функции к событию "onSubmit" формы или любому другому элементу события.
+* Пример: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
+*/
+function createObject() {
+    landing.createObjectFromLanding(config);
+}
+/**
+* Функция ниже инициализирует лендинг из параметров URL.
+*/
+function initLanding() {
+    landing.initLanding(config);
+}
+jQuery(document).ready(initLanding);
+
+
+
+    </script>
+
     
+
 
 </head>
 <body>
@@ -21,7 +83,7 @@
 
         </div>
 
-        <form id="registrationForm" novalidate>
+        <form id="registrationForm" onSubmit="createObject(); return false"novalidate>
             <div class="form-group">
                 <label for="name" class="form-label">Ім'я</label>
                 <input type="text" id="name" name="name" class="form-input" required>
@@ -56,13 +118,15 @@
                 <label for="country" class="form-label">Країна</label>
                 <select id="country" name="country" class="form-select" required>
                     <option value="">Оберіть країну</option>
-                    <option value="ukraine">Україна</option>
-                    <option value="azerbaijan">Азербайджан</option>
-                    <option value="armenia">Вірменія</option>
-                    <option value="georgia">Грузія</option>
-                    <option value="kazakhstan">Казахстан</option>
-                    <option value="uzbekistan">Узбекистан</option>
+                    <option value="Ukraine">Україна</option>
+                    <option value="Azerbaijan">Азербайджан</option>
+                    <option value="Armenia">Вірменія</option>
+                    <option value="Georgia">Грузія</option>
+                    <option value="Kazakhstan">Казахстан</option>
+                    <option value="Uzbekistan">Узбекистан</option>
                 </select>
+                <!-- Приховане поле Creatio -->
+                <input type="hidden" id="countryVal" />
                 <div class="error-message" id="countryError">Будь ласка, оберіть країну</div>
             </div>
 
@@ -75,6 +139,6 @@
     </div>
 
     <script src="form-processing.js"></script>
-    
+
 </body>
 </html>

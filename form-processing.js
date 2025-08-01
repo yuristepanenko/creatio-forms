@@ -204,7 +204,7 @@ form.addEventListener('submit', function(e) {
               `Contact: ${inputs.contact.value || 'не заповнено'}\n` +
               `UTM Source: ${inputs.utm_source.value || 'не заповнено'}`);
         
-        Очистити форму
+        //Очистити форму
         form.reset();
         Object.keys(inputs).forEach(key => {
             if (key !== 'contact' && key !== 'utm_source' && key !== 'countryValue') {

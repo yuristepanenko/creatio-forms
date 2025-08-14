@@ -156,7 +156,7 @@ if (inputs.company){
     });
 };
 
-if (inputs.jobtitle.){
+if (inputs.jobtitle){
     inputs.jobtitle.addEventListener('input', function() {
         if (this.value.trim().length === 0) {
             clearValidation('jobtitle');

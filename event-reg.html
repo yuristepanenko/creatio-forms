@@ -12,6 +12,53 @@
         }
     </style>
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://webtracking-v01.bpmonline.com/JS/track-cookies.js"></script>
+    <script src="https://webtracking-v01.bpmonline.com/JS/create-object.js"></script>
+    <script>
+
+    /**
+    * Замените выражение в кавычках "css-selector" в коде ниже значением селектора элемента на Вашей лендинговой странице.
+    * Вы можете использовать #id или любой другой CSS селектор, который будет точно определять поле ввода на Вашей лендинговой странице.
+    * Пример: "Email": "#MyEmailField".
+    * Если Ваша лендинговая страница не содержит одного или нескольких полей из приведенных ниже – оставьте строку без изменений или удалите полностью.
+    */
+    var config = {
+
+        fields: {
+            "Contact": "#name", // ФИО контакта, который регистрируется на мероприятие
+            "Contact.MobilePhone": "#mobile", // Мобильный телефон контакта
+            "Contact.JobTitle": "#jobtitle", // Должность контакта
+            "Contact.Email": "#email" // Email контакта
+        },
+        contactFields: {
+            "FullName": "#name", // Name of a contact
+            "Phone": "#mobile", // Contact's mobile phone
+            "Email": "#email" // Contact's email
+        },
+        customFields: {},
+        landingId: "05f7b7e9-c9a4-46c1-a223-4cbebdfc8092",
+        serviceUrl: "https://stage-xpartners.creatio.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
+        redirectUrl: ""
+    };
+    /**
+    * Функция ниже создает объект из введенных данных.
+    * Привяжите вызов этой функции к событию "onSubmit" формы или любому другому элементу события.
+    * Пример: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
+    */
+    function createObject() {
+        landing.createObjectFromLanding(config);
+    }
+    /**
+    * Функция ниже инициализирует лендинг из параметров URL.
+    */
+    function initLanding() {
+        landing.initLanding(config)
+    }
+    jQuery(document).ready(initLanding)
+    </script>
+
 </head>
 <body>
     <div class="form-container">
@@ -24,7 +71,7 @@
             </div>
         </div>
 
-        <form id="registrationForm" novalidate>
+        <form id="registrationForm" onSubmit="createObject(); return false" novalidate>
             <div class="form-group">
                 <label for="name" class="form-label">Ім'я</label>
                 <input type="text" id="name" name="name" class="form-input" required>
@@ -50,9 +97,9 @@
             </div>
 
             <div class="form-group">
-                <label for="company" class="form-label">Назва компанії</label>
-                <input type="text" id="company" name="company" class="form-input">
-                <div class="error-message" id="companyError">Будь ласка, введіть назву компанії</div>
+                <label for="jobtitle" class="form-label">Назва компанії</label>
+                <input type="text" id="jobtitle" name="jobtitle" class="form-input">
+                <div class="error-message" id="jobtitleError">Будь ласка, посаду</div>
             </div>
 
             <div class="form-group">

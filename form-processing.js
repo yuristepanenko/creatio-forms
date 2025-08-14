@@ -229,7 +229,7 @@ form.addEventListener('submit', function(e) {
         if (inputs.contact) resultMessage += `Contact: ${inputs.contact.value || 'не заповнено'}\n`;
         if (inputs.utm_source) resultMessage += `UTM Source: ${inputs.utm_source.value || 'не заповнено'}`;
             
-        lert(resultMessage);
+        alert(resultMessage);
         //Очистити форму
         form.reset();
         Object.keys(inputs).forEach(key => {

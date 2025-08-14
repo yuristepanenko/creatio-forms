@@ -93,8 +93,10 @@ function clearValidation(fieldName) {
     const errorElement = document.getElementById(`${fieldName}Error`);
     const successElement = document.getElementById(`${fieldName}Success`);
     
+    if (!input) return; // Якщо поле не існує на сторінці
+    
     input.classList.remove('error', 'success');
-    errorElement.style.display = 'none';
+    if (errorElement) errorElement.style.display = 'none';
     if (successElement) successElement.style.display = 'none';
 }
 

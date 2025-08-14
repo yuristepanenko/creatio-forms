@@ -4,6 +4,7 @@ const inputs = {
     email: document.getElementById('email'),
     mobile: document.getElementById('mobile'),
     company: document.getElementById('company'),
+    jobtitle: document.getElementById('jobtitlejobtitleError'),
     country: document.getElementById('country'),
     contact: document.getElementById('contact'),
     utm_source: document.getElementById('utm_source')
@@ -143,15 +144,29 @@ inputs.mobile.addEventListener('input', function() {
     }
 });
 
-inputs.company.addEventListener('input', function() {
-    if (this.value.trim().length === 0) {
-        clearValidation('company');
-    } else if (this.value.trim().length < 2) {
-        showError('company', 'Назва компанії повинна містити мінімум 2 символи');
-    } else {
-        showSuccess('company');
-    }
-});
+if (inputs.company){
+    inputs.company.addEventListener('input', function() {
+        if (this.value.trim().length === 0) {
+            clearValidation('company');
+        } else if (this.value.trim().length < 2) {
+            showError('company', 'Назва компанії повинна містити мінімум 2 символи');
+        } else {
+            showSuccess('company');
+        }
+    });
+};
+
+if (inputs.jobtitle.){
+    inputs.jobtitle.addEventListener('input', function() {
+        if (this.value.trim().length === 0) {
+            clearValidation('jobtitle');
+        } else if (this.value.trim().length < 2) {
+            showError('jobtitle', 'Назва компанії повинна містити мінімум 2 символи');
+        } else {
+            showSuccess('jobtitle');
+        }
+    });
+};
 
 
 
@@ -185,8 +200,13 @@ form.addEventListener('submit', function(e) {
         isValid = false;
     }
     
-    if (!inputs.company.value.trim() || inputs.company.value.trim().length < 2) {
+    if (inputs.company && (!inputs.company.value.trim() || inputs.company.value.trim().length < 2)) {
         showError('company', inputs.company.value.trim().length === 0 ? 'Будь ласка, введіть назву компанії' : 'Назва компанії повинна містити мінімум 2 символи');
+        isValid = false;
+    }
+
+    if (inputs.jobtitle && (!inputs.jobtitle.value.trim() || inputs.jobtitle.value.trim().length < 2)) {
+        showError('jobtitle', inputs.jobtitle.value.trim().length === 0 ? 'Будь ласка, вкажіть посаду' : 'Посада повинна містити мінімум 2 символи');
         isValid = false;
     }
 
@@ -198,15 +218,18 @@ form.addEventListener('submit', function(e) {
     
     if (isValid) {
         // Тут можна відправити дані на сервер
-        alert('Форма успішно відправлена!\n\n' +
-              `Ім'я: ${inputs.name.value}\n` +
-              `Email: ${inputs.email.value}\n` +
-              `Телефон: +38 ${inputs.mobile.value}\n` +
-              `Компанія: ${inputs.company.value}\n` +
-              `Країна: ${inputs.country.options[inputs.country.selectedIndex].text}\n` +
-              `Contact: ${inputs.contact.value || 'не заповнено'}\n` +
-              `UTM Source: ${inputs.utm_source.value || 'не заповнено'}`);
-        
+        let resultMessage = 'Форма успішно відправлена!\n\n';
+            
+        if (inputs.name) resultMessage += `Ім'я: ${inputs.name.value}\n`;
+        if (inputs.email) resultMessage += `Email: ${inputs.email.value}\n`;
+        if (inputs.mobile) resultMessage += `Телефон: +38 ${inputs.mobile.value}\n`;
+        if (inputs.company) resultMessage += `Компанія: ${inputs.company.value}\n`;
+        if (inputs.jobtitle) resultMessage += `Посада: ${inputs.jobtitle.value}\n`;
+        if (inputs.country) resultMessage += `Країна: ${inputs.country.options[inputs.country.selectedIndex].text}\n`;
+        if (inputs.contact) resultMessage += `Contact: ${inputs.contact.value || 'не заповнено'}\n`;
+        if (inputs.utm_source) resultMessage += `UTM Source: ${inputs.utm_source.value || 'не заповнено'}`;
+            
+        lert(resultMessage);
         //Очистити форму
         form.reset();
         Object.keys(inputs).forEach(key => {

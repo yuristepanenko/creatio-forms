@@ -4,7 +4,6 @@ const inputs = {
     email: document.getElementById('email'),
     mobile: document.getElementById('mobile'),
     company: document.getElementById('company'),
-    jobtitle: document.getElementById('jobtitle'),
     country: document.getElementById('country'),
     contact: document.getElementById('contact'),
     utm_source: document.getElementById('utm_source')
@@ -154,15 +153,7 @@ inputs.company.addEventListener('input', function() {
     }
 });
 
-inputs.jobtitle.addEventListener('input', function() {
-    if (this.value.trim().length === 0) {
-        clearValidation('jobtitle');
-    } else if (this.value.trim().length < 2) {
-        showError('jobtitle', 'Посада повинна містити мінімум 2 символи');
-    } else {
-        showSuccess('jobtitle');
-    }
-});
+
 
 inputs.country.addEventListener('change', function() {
     if (this.value === '') {
@@ -199,10 +190,6 @@ form.addEventListener('submit', function(e) {
         isValid = false;
     }
 
-    if (!inputs.jobtitle.value.trim() || inputs.jobtitle.value.trim().length < 2) {
-        showError('jobtitle', inputs.jobtitle.value.trim().length === 0 ? 'Будь ласка, вкажіть посаду' : 'Посада повинна містити мінімум 2 символи');
-        isValid = false;
-    }
     
     if (!inputs.country.value) {
         showError('country');
@@ -216,7 +203,6 @@ form.addEventListener('submit', function(e) {
               `Email: ${inputs.email.value}\n` +
               `Телефон: +38 ${inputs.mobile.value}\n` +
               `Компанія: ${inputs.company.value}\n` +
-                `Посада: ${inputs.jobtitle.value}\n` +
               `Країна: ${inputs.country.options[inputs.country.selectedIndex].text}\n` +
               `Contact: ${inputs.contact.value || 'не заповнено'}\n` +
               `UTM Source: ${inputs.utm_source.value || 'не заповнено'}`);

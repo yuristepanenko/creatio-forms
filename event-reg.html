@@ -62,78 +62,84 @@
 </head>
 <body>
     
-    <div class="form-container">
-        <div class="form-header">
-            <h1 class="form-title">Перевір реєстрацію тут</h1>
+    <div>
+        <div class="form-container">
             
-        </div>
-        <div>
-            <img src="https://xpartners.creatio.com/0/ServiceModel/PublicService.svc/QRCode?contactid=d330dab6-b64a-4dcb-bb1a-59edd19979db&eventid=759c1afc-f358-417e-85a6-c8b7d5497a78">
-        </div>
-    </div>
+            <div class="form-header">
+                <p class="form-subtitle">Лінк на PROD</p>
+                <p>Перейди, зміни статус учасника і додай коментар</p>
+            </div>
 
-    <div class="form-container">
-        <div class="form-header">
-            <h1 class="form-title">Реєструйся на подію</h1>
-            <p class="form-subtitle">форма реєстрації на подію</p>
-            <div class="navigation-links">
-                <a href="index.html" class="nav-link">Реєстрація ліда</a>
-                <a href="form-reg.html" class="nav-link">Форма звернення</a>
+            <div>
+                <img src="https://xpartners.creatio.com/0/ServiceModel/PublicService.svc/QRCode?contactid=d330dab6-b64a-4dcb-bb1a-59edd19979db&eventid=759c1afc-f358-417e-85a6-c8b7d5497a78">
             </div>
         </div>
-
-        <form id="registrationForm" onSubmit="createObject(); return false" novalidate>
-            <div class="form-group">
-                <label for="name" class="form-label">Ім'я</label>
-                <input type="text" id="name" name="name" class="form-input" required>
-                <div class="error-message" id="nameError">Будь ласка, введіть ваше ім'я</div>
-            </div>
-
-            <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" class="form-input" required>
-                <div class="error-message" id="emailError">Введіть коректну email адресу</div>
-                <div class="success-message" id="emailSuccess">✓ Email валідний</div>
-            </div>
-
-            <div class="form-group">
-                <label for="mobile" class="form-label">Мобільний телефон</label>
-                <div class="phone-input-container">
-                    <span class="phone-prefix">+38</span>
-                    <input type="tel" id="mobile" name="mobile" class="form-input phone-input" 
-                           placeholder="(0xx) xxx-xx-xx" required>
-                </div>
-                <div class="error-message" id="mobileError">Введіть номер у форматі +38 (0xx) xxx-xx-xx</div>
-                <div class="success-message" id="mobileSuccess">✓ Номер телефону валідний</div>
-            </div>
-
-            <div class="form-group">
-                <label for="jobtitle" class="form-label">Посада</label>
-                <input type="text" id="jobtitle" name="jobtitle" class="form-input">
-                <div class="error-message" id="jobtitleError">Будь ласка, вкажіть посаду</div>
-            </div>
         
+        <div><span>&nbsp;</span></div>
 
-            <div class="form-group">
-                <label for="country" class="form-label">Країна</label>
-                <select id="country" name="country" class="form-select" required>
-                    <option value="">Оберіть країну</option>
-                    <option value="ukraine">Україна</option>
-                    <option value="azerbaijan">Азербайджан</option>
-                    <option value="armenia">Вірменія</option>
-                    <option value="georgia">Грузія</option>
-                    <option value="kazakhstan">Казахстан</option>
-                    <option value="uzbekistan">Узбекистан</option>
-                </select>
-                <div class="error-message" id="countryError">Будь ласка, оберіть країну</div>
+        <div class="form-container">
+            <div class="form-header">
+                <h1 class="form-title">Реєструйся на подію</h1>
+                <p class="form-subtitle">форма реєстрації на подію</p>
+                <div class="navigation-links">
+                    <a href="index.html" class="nav-link">Реєстрація ліда</a>
+                    <a href="form-reg.html" class="nav-link">Форма звернення</a>
+                </div>
             </div>
 
-            <!-- Приховані поля -->
-            <input type="hidden" id="contact" name="contact" value="">
-            <input type="hidden" id="utm_source" name="utm_source" value="">
+            <form id="registrationForm" onSubmit="createObject(); return false" novalidate>
+                <div class="form-group">
+                    <label for="name" class="form-label">Ім'я</label>
+                    <input type="text" id="name" name="name" class="form-input" required>
+                    <div class="error-message" id="nameError">Будь ласка, введіть ваше ім'я</div>
+                </div>
 
-            <button type="submit" class="submit-btn">Прийняти участь</button>
-        </form>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                    <div class="error-message" id="emailError">Введіть коректну email адресу</div>
+                    <div class="success-message" id="emailSuccess">✓ Email валідний</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile" class="form-label">Мобільний телефон</label>
+                    <div class="phone-input-container">
+                        <span class="phone-prefix">+38</span>
+                        <input type="tel" id="mobile" name="mobile" class="form-input phone-input" 
+                               placeholder="(0xx) xxx-xx-xx" required>
+                    </div>
+                    <div class="error-message" id="mobileError">Введіть номер у форматі +38 (0xx) xxx-xx-xx</div>
+                    <div class="success-message" id="mobileSuccess">✓ Номер телефону валідний</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobtitle" class="form-label">Посада</label>
+                    <input type="text" id="jobtitle" name="jobtitle" class="form-input">
+                    <div class="error-message" id="jobtitleError">Будь ласка, вкажіть посаду</div>
+                </div>
+            
+
+                <div class="form-group">
+                    <label for="country" class="form-label">Країна</label>
+                    <select id="country" name="country" class="form-select" required>
+                        <option value="">Оберіть країну</option>
+                        <option value="ukraine">Україна</option>
+                        <option value="azerbaijan">Азербайджан</option>
+                        <option value="armenia">Вірменія</option>
+                        <option value="georgia">Грузія</option>
+                        <option value="kazakhstan">Казахстан</option>
+                        <option value="uzbekistan">Узбекистан</option>
+                    </select>
+                    <div class="error-message" id="countryError">Будь ласка, оберіть країну</div>
+                </div>
+
+                <!-- Приховані поля -->
+                <input type="hidden" id="contact" name="contact" value="">
+                <input type="hidden" id="utm_source" name="utm_source" value="">
+
+                <button type="submit" class="submit-btn">Прийняти участь</button>
+            </form>
+        </div>
     </div>
 
     
